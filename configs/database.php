@@ -9,6 +9,7 @@
         private $query;
         private $result;
 
+
         /*-----------------------------------------------------------------------
         Function: Construct
         Parameter: No parameter
