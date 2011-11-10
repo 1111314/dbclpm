@@ -28,9 +28,9 @@ background-color: #fff63e;
 #textarea{ border:1px groove #212121; color:#993366;}
 #noidung{ max-height:60px; max-width:350px ; min-height:60px ; min-width:350px; }
 .style1{color: #003366; font-family: tahoma; font-size: 10pt;}
-.style2{color:#660000; font-family: tahoma;font-size: 10pt; }
+.style2{color:#9e0000; font-family: tahoma;font-size: 10pt; }
 .style3{padding: 20px 0px 5px 0px ;  font-family: tahoma; font-size: 10pt; color: #003366 ; }
-.style4{color: #555555; font-family: tahoma;font-size: 10pt; border: 1px solid #999999; margin:0px 20px 0px 20px; padding: 5px}
+.style4{font-family: tahoma;font-size: 10pt; border: 1px solid #999999; margin:0px 20px 0px 20px; padding: 5px}
 .suanhanxet{color:blue; cursor: pointer};
 
 /*Kết thúc phần nhận xét */
