@@ -28,22 +28,22 @@ require_once("models/ThanhVien.php");
         }
         if($ho=="")
         {
-             $msg .= '(*) Bạn chưa nhập họ lót <br />' ;
+             $msg .= '(*) Bạn chưa nhập họ lót. <br />' ;
              $loi=true;
         }
         if($ten=="")
         {
-             $msg .= '(*) Bạn chưa nhập tên <br />' ;
+             $msg .= '(*) Bạn chưa nhập tên. <br />' ;
              $loi=true;
         }
         if($diachi=="")
         {
-             $msg .= '(*) Bạn chưa nhập địa chỉ <br />' ;
+             $msg .= '(*) Bạn chưa nhập địa chỉ. <br />' ;
              $loi=true;
         }
          if($ngaysinh=="")
         {
-             $msg .= '(*) Bạn chưa nhập ngày sinh <br />' ;
+             $msg .= '(*) Bạn chưa nhập ngày sinh. <br />' ;
              $loi=true;
         }
         else
@@ -60,7 +60,7 @@ require_once("models/ThanhVien.php");
                 $year =  substr($ngaysinh,6,4);
                 if(!checkdate($month,$day,$year))
                 {
-                    $msg .= "(*) Ngày sinh '".$day."-".$month."-".$year."' không có thật <br />" ;
+                    $msg .= "(*) Ngày sinh '".$day."-".$month."-".$year."' không có thật. <br />" ;
                     $loi=true;
                 }
             }
@@ -73,7 +73,7 @@ require_once("models/ThanhVien.php");
         $pass1 = $_POST['matkhau'];
         if($pass1=="")
         {
-             $msg .= '(*) Bạn chưa nhập vào mật khẩu <br />' ;
+             $msg .= '(*) Bạn chưa nhập vào mật khẩu. <br />' ;
              $loi=true;
         }
         else if(isset($_POST['matkhau2']))
@@ -81,18 +81,18 @@ require_once("models/ThanhVien.php");
             $pass2 = $_POST['matkhau2'];
             if(strlen($pass1)<4)
             {
-                $msg .= '(*) Mật khẩu phải có độ dài từ 4 đến 20 kí tự  <br />' ;
+                $msg .= '(*) Mật khẩu phải có độ dài từ 4 đến 20 kí tự.  <br />' ;
                 $loi=true;
             }
             else
             if($pass2=="")
             {
-                $msg .= '(*) Ban chưa nhập xác nhận mật khẩu! <br />' ;
+                $msg .= '(*) Ban chưa nhập xác nhận mật khẩu. <br />' ;
                 $loi=true;
             }
             else if($pass1!=$pass2)
             {
-                $msg .= '(*) Mật khẩu xác nhận không đúng! <br />' ;
+                $msg .= '(*) Mật khẩu xác nhận không đúng. <br />' ;
                 $loi=true;
             }
 
@@ -104,19 +104,36 @@ require_once("models/ThanhVien.php");
         $pattern = '/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/';
 
         if($email=="") {
-            $msg .=  '(*) Bạn chưa nhập email của bạn! <br />';
+            $msg .=  '(*) Bạn chưa nhập email của bạn. <br />';
             $loi=true;
         }
         else if(preg_match($pattern, $email)==0) {
-             $msg .=  '(*) Email không hợp lệ, vui lòng nhập lại! <br />';
+             $msg .=  '(*) Email không hợp lệ, vui lòng nhập lại. <br />';
              $loi=true;
         }
         else if($db->isExist("thanh_vien","tv_email='".$email."'")>0)
         {
-            $msg .= '(*) Email đã tồn tại, vui lòng nhập lại! <br />';
+            $msg .= '(*) Email đã tồn tại, vui lòng nhập lại <br />';
             $loi=true;
         }
    }
+ //session_start();
+    if(isset($_POST['btdangky']))
+    {
+        if($_POST['txtCaptcha'] == NULL)
+        {
+            $msg .= '(*) Bạn chưa nhập mã xác nhận. <br />';
+            $loi=true;
+        }
+        else
+        {
+            if($_POST['txtCaptcha'] != $_SESSION['security_code'])
+            {
+                $msg .= '(*) Mã xác nhận không đúng. <br />';
+                $loi=true;
+            }
+        }
+    }
     $_SESSION['LOI'] = $loi;
 
     if($loi==false)
@@ -145,8 +162,12 @@ require_once("models/ThanhVien.php");
             $tv->setNgayDangKy(date("Y-m-d"));
             $tv->setMaQuyen(1);
             $kq = $tv->themThanhVien();
-
+            $_SESSION['username']= $tendangnhap ;
+            ob_start();
+            header("Location: views/dkthanhcong.php ");
         }
     }
+
+
 
 ?>

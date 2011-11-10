@@ -23,7 +23,7 @@
 	    if (!$username) {
 		$response = array(
 		'ok' => false,
-		'msg' => "Bạn chưa nhập tên đăng nhập!");
+		'msg' => "Bạn chưa nhập tên đăng nhập.");
 
 	    } else if (strlen($username) < 4) {
 		$response = array(
@@ -34,19 +34,19 @@
 	    } else if (!preg_match('/^[a-z0-9.-_]+$/', $username)) {
 		$response = array(
 		'ok' => false,
-		'msg' => "Tên đăng nhập chỉ chứa các ký tự alpha, dấu chấm và dấu gạch dưới ");
+		'msg' => "Tên đăng nhập chỉ chứa các ký tự alpha, dấu chấm và dấu gạch dưới. ");
 
 	// nếu username đã có người sử dụng, ở đây giả sử là hàm username_taken()
 	} else if ($db->isExist("thanh_vien","tv_ten_dang_nhap='".$username."'")) {
 		$response = array(
 		'ok' => false,
-		'msg' => "Tên đăng nhập này đã tồn tại, vui lòng chọn tên khác!");
+		'msg' => "Tên đăng nhập này đã tồn tại, vui lòng chọn tên khác.");
 
 	// everything okay
 	} else {
 		$response = array(
 		'ok' => true,
-		'msg' => "bạn có thể dùng tên đăng nhập này");
+		'msg' => "bạn có thể dùng tên đăng nhập này.");
 	}
 
 	return $response;
