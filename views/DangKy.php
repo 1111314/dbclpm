@@ -42,6 +42,9 @@
 		});
 	});
 </script>
+<style type="text/css">
+
+</style>
 
 <script type="text/javascript" language="javascript" >
 		function mFocus(text)
@@ -163,8 +166,15 @@
             <input name="error_email" type="hidden" id="error_email">
 
       </tr>
+        <tr>
+        <td class="col1" valign="top" >Mã xác nhận : </td>
+        <td class="col2">
+           <p> <img src="models/random_image.php"/></p> 
+             <input type="text" name="txtCaptcha" maxlength="5" size="9" style="border: 1px solid #A4A4FF; font-weight: bolder; font-size: 11pt; text-align: center; height: 26px"  />
+        </td>
+
     </table>
-	<div align="center" style="padding-top:10px; ">
+	  <div align="center" style="padding-top:10px; ">
 	  <input id="btdangky" name="btdangky"  type="submit" value="Đăng ký"  />
 	  &nbsp; &nbsp; &nbsp;
 	  <input name="bthuybo" type="reset" id="bthuybo" value="Hủy bỏ" />
