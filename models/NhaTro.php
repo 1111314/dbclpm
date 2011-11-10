@@ -98,7 +98,7 @@
 
         public function capnhatLuotXem()
         {
-            $this->setQuery("update nha_tro set NT_LUOT_XEM ='".$this->getLuotxem()."' where NT_MA_SO='".$this->getMaSo()."'");
+            $this->setQuery("update nha_tro set NT_LUOT_XEM=(NT_LUOT_XEM+1) where NT_MA_SO='".$this->getMaSo()."'");
             return $this->executeQuery();
         }
 
@@ -123,7 +123,7 @@
         
         public function dsLoaiPhongThuocNhaTro(){
           $query = "select NT.NT_TEN, NT.NT_MA_SO,CLP.CLP_DON_GIA,CLP.CLP_MO_TA,LP.LP_TEN ";
-            $query.= " from nha_tro as NT, co_loai_phong as CLP ";
+            $query.= " from nha_tro as NT, co_loai_phong as CLP, Loai_Phong LP ";
             $query.=" where NT.NT_MA_SO = CLP.NT_MA_SO and CLP.LP_MA_SO = LP.LP_MA_SO" ;
             $query .= " and  NT.NT_MA_SO='".$this->getMaSo()."'";
             $this->setQuery($query);
