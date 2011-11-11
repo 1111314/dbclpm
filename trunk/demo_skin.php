@@ -24,15 +24,19 @@
 </div>
 
 <div  class="c_body"> 
-  <div class="c_boder_left"></div>
+ 
 	<div id="sidebar" class="c_sidebar">
     	<div id="search" class="c_search">
         	<?php include ("configs/search.php") ?>
         </div>
-    </div>
+     <p>&nbsp;</p>
+      <div id="live_support" class="c_live_support">
+        	<?php include ("configs/live_support.php") ?>
+        </div>
+        
+  </div>
   <div id="content" class="c_content">content</div>
-  d
-	<div class="c_boder_right"></div>
+
 </div>
 
 <div class="c_break_footer"></div>
