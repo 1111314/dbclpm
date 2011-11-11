@@ -9,17 +9,29 @@
 <body>
 
 <div id="top" class="c_top"> 
-<div class="banner">
-	<?php  include ("configs/banner.php"); ?>
+    <div class="banner">
+        <?php  include ("configs/banner.php"); ?>
     </div>
-	
+   <div id="login" class="c_login">
+    Xin Chào Khách</div>
+    <div id="menu" class="c_menu">
+   <?php include ("configs/main_menu.php"); ?>
+    </div>
 </div>
 
+<div id="nav_top" class="c_nav_top">
+
+</div>
 
 <div  class="c_body"> 
   <div class="c_boder_left"></div>
-	<div id="menu" class="c_menu">menu</div>
+	<div id="sidebar" class="c_sidebar">
+    	<div id="search" class="c_search">
+        	<?php include ("configs/search.php") ?>
+        </div>
+    </div>
   <div id="content" class="c_content">content</div>
+  d
 	<div class="c_boder_right"></div>
 </div>
 
