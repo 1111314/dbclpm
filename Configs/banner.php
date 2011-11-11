@@ -1,0 +1,1 @@
+<div id = "banner"  class="banner" ><img src="./Images/banner.jpg" class="img_banner" /></div>
